@@ -14,20 +14,31 @@ import android.widget.TextView;
 
 import edu.rutgers.rumad.rumadworkshopone.R;
 
+// import statement for the r file of this app. 
+// "the build of your app that accesses all declared resources "
+
 public class MainActivityCompleted extends ActionBarActivity {
+    // create global null pointers to all of the resources that we will use in this activity
     Button red,blue,next;
     EditText input;
     TextView output;
     Context ctx;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+
+    @Override  // on the creation of this context, create the content views, initialize instances and set content view from R.java
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // ctx is set. ctx is a pointer to the current rendered context on the Android device.
         ctx = this;
+        // red button pointer
         red = (Button)findViewById(R.id.redBtn);
+        // blue button pointer
         blue = (Button)findViewById(R.id.blueBtn);
+        //  next button pointer
         next = (Button)findViewById(R.id.nextBtn);
+        // input where we take in a string 
         input = (EditText)findViewById(R.id.inputField);
+        // output where text will be displayed
         output = (TextView)findViewById(R.id.outputView);
 
         String inputText = input.getText().toString();
@@ -36,7 +47,10 @@ public class MainActivityCompleted extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 String inputText = input.getText().toString();
+                /* Fills in the currently empty text of output
+                 var "inputText" */
                 output.setText(inputText);
+                /* Now make the color red like css */
                 output.setTextColor(Color.RED);
             }
         });
@@ -44,6 +58,7 @@ public class MainActivityCompleted extends ActionBarActivity {
         blue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // sort of like listen for buttons, then do this
                 String inputText = input.getText().toString();
                 output.setText(inputText);
                 output.setTextColor(Color.BLUE);
@@ -53,7 +68,9 @@ public class MainActivityCompleted extends ActionBarActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // intent listener, when the NEXT button is clicked, initialize our new intent
                 Intent intent = new Intent(ctx,SecondActivityCompleted.class);
+                // now start our new activity because our previous intent was initialized
                 startActivity(intent);
             }
         });
