@@ -1,3 +1,5 @@
+/*** written by Shreyas Hirday **/
+
 package edu.rutgers.rumad.rumadworkshopone.boilerplate;
 
 import android.support.v7.app.ActionBarActivity;
@@ -6,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import edu.rutgers.rumad.rumadworkshopone.R;
+
 
 
 public class MainActivity extends ActionBarActivity {
